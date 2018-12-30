@@ -62,7 +62,7 @@ public class StudentEndpoint {
     }
 
     private void verifyIfStudentExists(Long id){
-        if(studentDAO.findById(id) == null)
+        if(studentDAO.findById(id).orElse(null) == null)
             throw new ResourceNotFoundException("Student not found for ID: "+id);
     }
 }
